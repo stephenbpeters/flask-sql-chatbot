@@ -10,6 +10,7 @@ from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from langchain_community.agent_toolkits.sql.base import create_sql_agent
 from langchain_community.utilities import SQLDatabase
 from langchain_openai import ChatOpenAI
+from sqlalchemy import create_engine
 
 # Load the OpenAI API key from .env
 load_dotenv()
@@ -24,8 +25,11 @@ db_path = os.path.join(app_dir, "Chinook.db")
 if not os.path.isfile(db_path):
     raise FileNotFoundError(f"Database not found: {db_path}")
 
-# Connect to the database
-db = SQLDatabase.from_uri(f"sqlite:///{db_path}")
+# Connect to the database, read only!
+engine = create_engine(
+    f"sqlite:///file:{db_path}?mode=ro&uri=true"
+)
+db = SQLDatabase(engine)
 
 print(f"Connected to database: {db_path}")
 

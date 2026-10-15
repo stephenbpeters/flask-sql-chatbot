@@ -1,3 +1,7 @@
+## Screenshot
+
+![SQL Chatbot showing an answer and SQL agent activity](screenshots/chatbot-demo.png)
+
 # Flask SQL Chatbot
 
 A Flask-based web application that lets visitors ask questions about a SQLite database using everyday English.
@@ -70,7 +74,7 @@ Local environment files, logs, and Python cache directories are excluded from ve
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/flask-sql-chatbot.git
+git clone https://github.com/stephenbpeters/flask-sql-chatbot.git
 cd flask-sql-chatbot
 ```
 
@@ -172,11 +176,22 @@ The live demonstration is hosted on a DreamHost VPS using:
 
 Gunicorn serves the Flask application behind the proxy. The production service is managed independently of Flask's development server.
 
+## Using This Well
+
+Keep in mind that this tool answers the question you ask, *not the question you meant to ask*.
+
+Notice the difference in output between:
+
+- What are our total sales?
+-- Answer: The total sales amount to $2328.60.
+- What are our total sales for 2010?
+-- Answer: The total sales for the year 2010 amount to $481.45.
+
 ## Security Considerations
 
 This project is intended as a demonstration and learning tool.
 
-LangChain SQL agents can generate and execute SQL statements. Depending on the database permissions, those statements may modify or delete data.
+LangChain SQL agents can generate and execute SQL statements. Depending on the database permissions, those statements may modify or delete data.  The live demo is set to have read-only acccess.
 
 For deployments using real databases:
 

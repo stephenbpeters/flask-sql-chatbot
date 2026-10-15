@@ -9,6 +9,7 @@ from langchain_community.agent_toolkits.sql.base import create_sql_agent
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from langchain_community.utilities import SQLDatabase
 from langchain_openai import ChatOpenAI
+from sqlalchemy import create_engine
 
 
 # let's get some results from the database
@@ -20,8 +21,12 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 app_dir = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(app_dir, 'Chinook.db')
+# read only access!
+engine = create_engine(
+    f"sqlite:///file:{db_path}?mode=ro&uri=true"
+)
+db = SQLDatabase(engine)
 
-db = SQLDatabase.from_uri(f"sqlite:///{db_path}")
 print(f"database uri = {db_path}")
 
 # Create the agent executor for the chat
@@ -72,8 +77,6 @@ def index():
         return render_template(
             'index.html',
             text=text,
-            output=output,
-            result=result,
             response=response,
             steps=steps
         )
