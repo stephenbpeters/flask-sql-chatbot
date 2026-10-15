@@ -187,6 +187,20 @@ Notice the difference in output between:
 - What are our total sales for 2010?
 -- Answer: The total sales for the year 2010 amount to $481.45.
 
+Be careful with your own assumptions in your questions and don't be afraid to ask your question in more than one way to double check your results.  Here is a trick to get the AI to give you more information:
+
+Try this question:
+
+- What is our most popular product and tell me your assumptions.
+
+versus this question:
+
+- What is our most popular product?
+
+You may also find some amusing results.  Try this question: 
+
+- ¿Quien es mas macho?  ¿Aerosmith o Metallica?
+
 ## Security Considerations
 
 This project is intended as a demonstration and learning tool.
