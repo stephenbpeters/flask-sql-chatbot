@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+.agent-activity { margin: 1.5rem 0; padding: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+.agent-activity summary { cursor: pointer; font-weight: bold; }
+.agent-step { margin-top: 1rem; padding: 0.75rem; background: #f5f5f5; border-left: 3px solid #777; }
+.agent-step pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+</style>
+    <h1 class="title">{% block title %} Welcome to Database Chat {% endblock %}</h1>
+	<p>
+    This is a demo Web application that allows a visitor to ask a question to a database in regular English, and get a regular English reply.
+    </p>
+    <p>
+    It is using a test database for a music store.  It has information on customers, orders, musical artists, music tracks, albums, genres and playlists.
+    </p>
+    <p>
+    Here's some example questions:</p> 
+    <p align="center"><i><b>"Which customer spent the most money, how much money did they spend, and where do they live?"</b></i><br>
+    <i><b>"What information can I find in this database?"</b></i><br>
+    <i><b>"What is our most profitable item and why?"</b></i><br>     
+    </p>
+    <p>Give it a try!</p>
+    <div>
+    <form method="POST" action="/">
+        <label for="text">Your question here:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50">{{ text|default("", true) }}</textarea><br>
+        <input type="submit" value="Submit Question – patience while it is processed"  onclick="showSpinner()">
+    </form>
+    </div>
+<!-- div below added to display the "please wait" spinner.  the library will not load if the src is loaded in base.html, must be here. -->    
+     <div id="spinner"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+  <script>
+    function showSpinner(event) {   
+      var target = document.getElementById('spinner');
+      var spinner = new Spinner().spin(target);
+    }    
+  </script>     
+    		{% if text %}
+			<h1>DRUM ROLL PLEASE!</h1>
+			<p>Your question was: </p>
+			<p class="text-success">{{ text }}</p>
+			<p>The AI reply to your database question is:</p>
+			<p class="text-success">{{ response }}</p>
+            {% if steps %}
+            <details class="agent-activity">
+                <summary>Show SQL Agent Activity ({{ steps|length }} steps)</summary>
+                {% for step in steps %}
+                <section class="agent-step">
+                    <h4>Step {{ loop.index }}: {{ step.tool }}</h4>
+                    <strong>Tool input:</strong>
+                    <pre>{{ step.input }}</pre>
+                    <strong>Tool output:</strong>
+                    <pre>{{ step.output }}</pre>
+                </section>
+                {% endfor %}
+            </details>
+            {% endif %}
+			{% endif %}		
+ 			<p>
+			<center><i><a href="{{ url_for('about') }}">How does this work?</a></i></center>
+			</p>
+			<div>
+			<hr>
+			<p>– a demo by <a href="{{ url_for('contact') }}">Tiki:Mojo Creative Services.</a>  Call us for a consultation.</p>
+			<p>
+			– Steve Peters<br>			
+			– June 17, 2023</p>
+    </div>
+    
+{% endblock %}

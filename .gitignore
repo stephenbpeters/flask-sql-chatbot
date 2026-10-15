@@ -1,0 +1,40 @@
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Logs
+logs/
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local databases and temporary SQLite files
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Backups
+*.bak
+*.backup
+
+

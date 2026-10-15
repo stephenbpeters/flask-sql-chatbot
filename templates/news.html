@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} News {% endblock %}</h1>
+    <div class="content">
+    	<div class="text">
+		<p>
+		  Here's what's happening:
+		</p>
+		<p>
+    	  <b>June 19, 2023 – </b> Added Bootstrap CSS so the page templates look attractive.
+		</p>
+		<p>
+    		<b>June 17, 2023 – </b> Basic demo launched!
+		</p>
+		<p>
+			Here's what's planned:
+		</p>
+		<p>
+			<ul>
+			<li>By default, (or with a checkbox) add to the user's prompt text that reliably returns the assumptions the AI is using to construct it's answer.  This is important because sometimes it's assumptions are entirely wrong leading to incorrect or misleading answers.
+			<li>Add additional databases using different database engines.
+			<li>Add a feature that will generate a graph and display it on the page.
+			<li>Update it to show more of your past questions, and not just the latest one.
+			<li>Make it more obvious when the answer appears, right now it's off the bottom of the screen on many displays.
+			<li>Add a way to see the database visually on the web site.  perhaps through a SQLite GUI tool such as DB Browser for SQLite.
+			<li>Improve appearance on mobile devices.
+			</ul>
+		</p>		
+    	</div>
+    	<div>
+    		<hr>
+    		<p>– a demo by <a href="http://www.tikimojo.com/" target="_blank">Tiki:Mojo Creative Services.</a>  Call us for a <a href="https://tikimojo.com/contact/" target="_blank">consultation</a><br>
+			– Stephen Peters</p>
+    	</div>
+    </div>
+{% endblock %}

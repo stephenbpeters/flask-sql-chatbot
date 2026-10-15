@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">About this app...</h1>
+    <div class="content">
+    	<div class="text">
+		<p>
+		This is a demo Python Flask database app built out from information in this tutorial: 
+		<a href="https://youtu.be/1FeBkAccobY" target="_blank"> "Chat with Your SQL Data Using ChatGPT" by MG</a>
+		</p>
+		<p>The engine is written in Python, presented through Flask.</p>
+		<p>Behind the scenes, here's what's happening:</p>
+
+		<p>
+		<ul>
+			<li>Your question is called a "prompt", when you click the "submit" button your prompt is sent to the <a href="https://en.wikipedia.org/wiki/ChatGPT?wprov=srpw1_0" target="_blank">ChatGPT large language model</a> via the <a href="https://en.wikipedia.org/wiki/OpenAI" target="_blank">OpenAI API</a>.
+			<li>Internally, the language model processes the input message using its trained neural network architecture. 
+			<li>The model analyzes the input, identifies patterns and looks through the database structure.
+			<li>When it thinks its found the tables and information it's looking for, it builds and submits an SQL query to the database engine.
+			<li>It translates the SQL reply from the database into regular written English and it's displayed on the page.
+		</ul></p>
+		<p>Q: What version of ChatGPT is this using??<br>
+			A: Currently it is set to use GPT3.5-Turbo, aka "DaVinci".
+		</p>
+		<p>Q: Is all this stuff free?<br>
+			A: I'm afraid not.  There's a small charge for every API call.
+		</p>
+		<p>Q: How accurate are the answers?<br>
+			A: Sometimes they are spot-on.  Sometimes the answers are misleading, or outright incorrect.  This can be because of the way the question is phrased.  To get a better idea if you're getting good information in the answer, try asking your question in multiple ways to see if the answer changes.
+		</p>
+		<p>Q: What's the database engine?<br>
+			A: It's currently running on SQLite, but it can connect to virtually any database engine in common usage.  
+		</p>
+		<p>Q: Can I look at this database?<br>
+			A: Two ways to do this.  You can <a href="{{ url_for('index') }}">ask the AI</a> any regular database question such as, "What tables are in the database" or you can also just <a href="https://tikimojo.com/share/chinook-db/Chinook.db">download the test database here as an SQLite file.</a>  View with <a href="https://sqlitestudio.pl/" target="_blank">SQLite Studio</a>.  
+		</p>	
+		<p>Q: Is this code available somewhere?<br>
+			A: I haven't posted it to github yet, but you can <a href="https://youtu.be/1FeBkAccobY" target="_blank">access the original tutorial here.</a>  
+		</p>
+		<p>Q: Only English?  Does it work in other languages?<br>
+			A: It sure does!  At the time of this writing you can also use French, Spanish, Russian and Chinese. 
+		</p>		
+		<p>Q: Wouldn't the web UI be fancier if you used one of the many javascript frameworks?<br>
+			A: Yes, but this is a demo of using OpenAI's ChatGPT talking to database, not of whizzy web UI's.  Perhaps once I get this demo doing all the things I want it to do, I'll make a version with a whizzier web UI.
+		</p>				
+		<p>Q: What else is planned for this?<br>
+			A: I do have plans for more features. <a href="{{ url_for('news') }}">You can read about it here.</a>  
+		</p>								
+    	</div>
+    	<div>
+    		<hr>
+    		<p>– a demo by <a href="{{ url_for('contact') }}">Tiki:Mojo Creative Services.</a>  Call us for a consultation.<br>
+			– Stephen Peters<br>
+			– June 17, 2023</p>
+    	</div>
+    </div>
+{% endblock %}
