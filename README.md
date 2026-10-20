@@ -1,10 +1,8 @@
-## Screenshot
-
-![SQL Chatbot showing an answer and SQL agent activity](screenshots/chatbot-demo.png)
-
 # Flask SQL Chatbot
 
 A Flask-based web application that lets visitors ask questions about a SQLite database using everyday English.
+
+![SQL Chatbot showing an answer and SQL agent activity](screenshots/chatbot-demo.png)
 
 Built with **Python, Flask, LangChain, OpenAI, and SQLite**, the application translates natural-language questions into SQL queries, executes them against a database, and returns answers in plain English.
 
@@ -77,8 +75,6 @@ Local environment files, logs, and Python cache directories are excluded from ve
 git clone https://github.com/stephenbpeters/flask-sql-chatbot.git
 cd flask-sql-chatbot
 ```
-
-Replace `YOUR_USERNAME` with the GitHub account that hosts the repository.
 
 ### 2. Create a virtual environment
 
@@ -183,9 +179,9 @@ Keep in mind that this tool answers the question you ask, *not the question you 
 Notice the difference in output between:
 
 - What are our total sales?
--- Answer: The total sales amount to $2328.60.
+  - Answer: The total sales amount to $2328.60.
 - What are our total sales for 2010?
--- Answer: The total sales for the year 2010 amount to $481.45.
+  - Answer: The total sales for the year 2010 amount to $481.45.
 
 Be careful with your own assumptions in your questions and don't be afraid to ask your question in more than one way to double check your results.  Here is a trick to get the AI to give you more information:
 
@@ -199,13 +195,15 @@ versus this question:
 
 You may also find some amusing results.  Try this question: 
 
-- ¿Quien es mas macho?  ¿Aerosmith o Metallica?
+- ¿Quién es más macho?  ¿Aerosmith o Metallica?
+
+If you're someone who can read SQL, open "Show SQL Agent Activity" and double check that the queries it sent match what you were actually looking for.
 
 ## Security Considerations
 
 This project is intended as a demonstration and learning tool.
 
-LangChain SQL agents can generate and execute SQL statements. Depending on the database permissions, those statements may modify or delete data.  The live demo is set to have read-only acccess.
+LangChain SQL agents can generate and execute SQL statements. Depending on the database permissions, those statements may modify or delete data.  The live demo is set to have read-only access.
 
 For deployments using real databases:
 
